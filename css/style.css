@@ -29,7 +29,7 @@ header {
     padding: 20px 5%;
     max-width: 1400px;
     margin: 0 auto;
-    background-color: #ededed;
+    background-image: url('../images/bannernuvai.jpg');
 }
 
 .logo {
