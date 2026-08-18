@@ -1,278 +1,314 @@
-* {
+/* --- Estilos Generales --- */
+body,
+html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-body {
-    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0;
     color: #111;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
 }
 
-/* Top Bar */
-.top-bar {
-    background-color: #262f91;
-    color: white;
-    text-align: center;
-    padding: 8px 10px;
-    font-size: 14px;
-    font-weight: 500;
+* {
+    box-sizing: border-box;
 }
 
-/* Header / Navbar */
-header {
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Barra de Navegación Superior --- */
+.top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-    background-image: url('../images/bannernuvai.jpg');
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 6px 28px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+    max-width: 100%;
+    min-height: 60px;
 }
 
-.logo {
-    display: inline-flex;
-    align-items: center;
-    line-height: 0;
-}
-.logo img {
-    width: 100px;
-    height: auto;
-
-}
-
-.logo span.m {
-    color: #262f91;
-}
-
-.logo span.w {
-    color: #111;
-}
-
+.nav-left,
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
-.btn-login {
-    background-color: #262f91;
-    color: white;
-    border: none;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    box-shadow: 0 4px 15px rgba(230, 0, 103, 0.3);
-    transition: background 0.3s;
-}
-
-.btn-login:hover {
-    background-color: #262f91;
-}
-
-.menu-icon {
-    background-color: #262f91;
-    color: white;
-    border: none;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
+.logo {
+    font-weight: 900;
+    font-size: 20px;
+    margin-right: 8px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(230, 0, 103, 0.3);
+    line-height: 1;
 }
 
-/* Hero Section */
-.hero {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+.logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    transform: translateY(8px);
+}
+
+.new-tag {
+    background-color: #111;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    vertical-align: super;
+    margin-left: 3px;
+}
+
+.search-box {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: #777;
+    width: 200px;
+    display: flex;
     align-items: center;
-    max-width: 1300px;
-    margin: 40px auto 0;
-    padding: 0 5%;
-    position: relative;
 }
 
-.hero-content {
-    z-index: 2;
+.search-box::before {
+    content: '🔍';
+    margin-right: 10px;
+    font-size: 12px;
 }
 
-.hero-content h1 {
-    font-size: 52px;
-    line-height: 1.1;
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-be-pro {
+    background-color: #111;
+    color: #fff;
+}
+
+.btn-submit {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* --- Sección Principal --- */
+.main-content {
+    text-align: center;
+    padding: 60px 20px 30px 20px;
+}
+
+.site-of-day-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.date-box {
+    background-color: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 120px;
     font-weight: 800;
-    color: #111;
-    margin-bottom: 25px;
+    margin: 0 0 20px 0;
+    letter-spacing: -2px;
+    line-height: 0.9;
 }
 
-.hero-content h1 span.highlight {
-    background: linear-gradient(90deg, #262f91, #7b2cbf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-content p {
-    font-size: 18px;
-    color: #444;
-    line-height: 1.5;
-    margin-bottom: 40px;
-    max-width: 540px;
-}
-
-.hero-buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.btn-start {
-    background-color: #262f91;
-    color: white;
-    border: none;
-    padding: 16px 36px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(230, 0, 103, 0.4);
-    transition: transform 0.2s;
-}
-
-.btn-start:hover {
-    transform: translateY(-2px);
-}
-
-.btn-whatsapp {
-    background-color: #25d366;
-    color: white;
-    border: none;
-    padding: 16px 28px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
+.fps-info {
+    display: inline-flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    transition: transform 0.2s;
+    background-color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: 1px solid #e0e0e0;
 }
 
-.btn-whatsapp:hover {
-    transform: translateY(-2px);
-}
-
-/* Hero Image & Floating Cards Section */
-.hero-image-container {
-    position: relative;
+.fps-icon {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    height: 550px;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #777;
 }
 
-.bg-glow {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 182, 193, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
-
-.person-img {
+/* --- Sección del Showcase / Mockup del Reloj --- */
+.showcase-section {
+    background-image: url('../images/bannernuvai2.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    z-index: 2;
-    max-height: 100%;
-    object-fit: contain;
 }
 
-/* Floating UI Mockups */
-.float-card {
-    position: absolute;
-    background: white;
-    padding: 15px 20px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    z-index: 3;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+.showcase-card {
+    position: relative;
+    width: min(1100px, 92%);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 30px 30px 52px;
 }
 
-.card-top-left {
-    top: 120px;
-    left: 20px;
-    min-width: 180px;
+.preview-frame {
+    background-color: #1a1a1a;
+    border: 12px solid #222;
+    border-radius: 22px;
+    width: 100%;
+    max-width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
-.card-top-left .title {
-    font-size: 11px;
-    color: #666;
-    margin-bottom: 4px;
+.preview-screen {
+    background-color: #f7f7f7;
+    width: 95%;
+    height: 90%;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.card-top-left .number {
-    font-size: 20px;
-    font-weight: 700;
+.preview-text-bg {
+    font-size: 140px;
+    font-weight: 900;
     color: #111;
+    letter-spacing: -5px;
+    opacity: 0.9;
+    user-select: none;
 }
 
-.card-top-left .stat-badge {
-    display: inline-block;
-    background: #e6f9ed;
-    color: #00b050;
-    font-size: 11px;
+.preview-watch-img {
+    position: absolute;
+    width: 130px;
+    z-index: 2;
+}
+
+.preview-details {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    text-align: left;
+}
+
+.preview-details span {
+    display: block;
+    font-size: 10px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.preview-details h3 {
+    margin: 2px 0 0 0;
+    font-size: 16px;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+/* Texto inferior fuera del marco */
+.highlights-text {
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 34px;
+    font-size: clamp(22px, 2vw, 28px);
+    font-weight: 500;
+    line-height: 1.2;
+    padding-left: 6px;
+}
+
+/* --- Barra de navegación flotante del proyecto --- */
+.project-nav-float {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #111;
+    padding: 8px 12px;
+    border-radius: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 900px);
+    max-width: calc(100% - 24px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    z-index: 10;
+}
+
+.proj-btn {
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
     font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 6px;
+    cursor: pointer;
+}
+
+.proj-btn:hover,
+.proj-btn.active {
+    background-color: #f0f0f0;
+}
+
+.proj-btn-w {
+    font-weight: 900;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.proj-btn-visit {
+    background-color: #111;
+    color: #fff;
     margin-left: 5px;
 }
 
-.card-bottom-right {
-    bottom: 30px;
-    right: 20px;
-    min-width: 170px;
-}
-
-.card-bottom-right .subtitle {
-    font-size: 10px;
-    color: #888;
-}
-
-.card-bottom-right .main-val {
-    font-size: 18px;
-    font-weight: 700;
-    color: #111;
-}
-
-/* Responsive */
-@media (max-width: 968px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-content p {
-        margin: 0 auto 30px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-image-container {
-        margin-top: 40px;
-        height: 400px;
-    }
+.proj-btn-visit:hover {
+    background-color: #333;
 }
