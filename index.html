@@ -25,15 +25,23 @@
 
         <div class="nav-menu">
             <div class="nav-left">
-                <a href="#">Explore ▾</a>
-                <a href="#">Directory</a>
+                <div class="nav-dropdown">
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">Servicios ▾</button>
+                    <div class="dropdown-menu" aria-label="Servicios">
+                        <a href="#">Desarrollo Web</a>
+                        <a href="#">Marketing Digital</a>
+                        <a href="#">Producción Multimedia</a>
+                        <a href="#">SEO / Ads</a>
+                    </div>
+                </div>
+                <a href="#">Portafolio</a>
                 <a href="#">Academy <span class="new-tag">NEW</span></a>
-                <a href="#">Jobs</a>
+                <a href="#">Nosotros</a>
                 <a href="#">Market</a>
             </div>
             <div class="nav-right">
                 <div class="search-box">Buscar en esta página...</div>
-                <a href="#" class="btn btn-be-pro">Ofertas</a>
+                <a href="#" class="btn btn-be-pro">Planes</a>
                 <a href="#" class="btn btn-submit">Contacto</a>
             </div>
         </div>
@@ -126,6 +134,7 @@
     <script>
         const nav = document.getElementById('mainNav');
         const toggle = document.querySelector('.menu-toggle');
+        const dropdowns = document.querySelectorAll('.nav-dropdown');
 
         if (toggle) {
             toggle.addEventListener('click', () => {
@@ -133,6 +142,34 @@
                 toggle.setAttribute('aria-expanded', String(isOpen));
             });
         }
+
+        dropdowns.forEach((dropdown) => {
+            const button = dropdown.querySelector('.dropdown-toggle');
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const isOpen = dropdown.classList.toggle('open');
+                button.setAttribute('aria-expanded', String(isOpen));
+
+                dropdowns.forEach((other) => {
+                    if (other !== dropdown) {
+                        other.classList.remove('open');
+                        const otherButton = other.querySelector('.dropdown-toggle');
+                        otherButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            const clickedInsideDropdown = event.target.closest('.nav-dropdown');
+            if (!clickedInsideDropdown) {
+                dropdowns.forEach((dropdown) => {
+                    dropdown.classList.remove('open');
+                    const button = dropdown.querySelector('.dropdown-toggle');
+                    button.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
     </script>
 </body>
 
