@@ -131,7 +131,7 @@ a {
 }
 
 h1 {
-    font-size: 120px;
+    font-size: 80px;
     font-weight: 800;
     margin: 0 0 20px 0;
     letter-spacing: -2px;
@@ -168,10 +168,12 @@ h1 {
     background-size: cover;
     background-position: center;
     padding: 80px 20px 120px 20px;
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    border-radius: 30px 30px 30px 30px;
 }
 
 .showcase-card {
@@ -311,4 +313,160 @@ h1 {
 
 .proj-btn-visit:hover {
     background-color: #333;
+}
+
+
+/* --- Estilos Generales de la Seccion --- */
+.gallery-section {
+    background-color: #f0f0f0;
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.card-container {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 16px;
+    width: 48%;
+    min-width: 450px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.preview-frame {
+    background-color: #141414;
+    border-radius: 12px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #262626;
+}
+
+/* Tarjeta 1: Estilo Oscuro / Mechanical Heart */
+.card-dark .preview-screen {
+    background: linear-gradient(135deg, #0b0b0b 0%, #1f1f1f 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+}
+
+.card-dark h2 {
+    color: #fff;
+    font-size: 28px;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.card-dark h2 span {
+    display: block;
+    font-weight: 700;
+}
+
+.card-dark .bg-number {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.08);
+    letter-spacing: -3px;
+}
+
+/* Tarjeta 2: Estilo Claro / FS 60P */
+.card-light .preview-screen {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.preview-text-bg {
+    font-size: 110px;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -4px;
+    opacity: 0.85;
+}
+
+.preview-watch-img {
+    position: absolute;
+    width: 110px;
+}
+
+.preview-details {
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    text-align: left;
+}
+
+.preview-details span {
+    display: block;
+    font-size: 9px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.preview-details h3 {
+    margin: 2px 0 0 0;
+    font-size: 14px;
+    color: #111;
+}
+
+/* Pie de tarjeta */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-footer-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: none;
+    margin-top: 4px;
+}
+
+.card-icons {
+    display: flex;
+    gap: 15px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.tag-badge {
+    background-color: #262626;
+    color: #ccc;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
 }
