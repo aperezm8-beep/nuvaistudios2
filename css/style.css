@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #262f91;
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Header / Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #ededed;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+.logo img {
+    width: 100px;
+    height: auto;
+
+}
+
+.logo span.m {
+    color: #262f91;
+}
+
+.logo span.w {
+    color: #111;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login {
+    background-color: #262f91;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(230, 0, 103, 0.3);
+    transition: background 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #262f91;
+}
+
+.menu-icon {
+    background-color: #262f91;
+    color: white;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(230, 0, 103, 0.3);
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    max-width: 1300px;
+    margin: 40px auto 0;
+    padding: 0 5%;
+    position: relative;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 span.highlight {
+    background: linear-gradient(90deg, #262f91, #7b2cbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 540px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-start {
+    background-color: #262f91;
+    color: white;
+    border: none;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(230, 0, 103, 0.4);
+    transition: transform 0.2s;
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+}
+
+/* Hero Image & Floating Cards Section */
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 550px;
+}
+
+.bg-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.person-img {
+    position: relative;
+    z-index: 2;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Floating UI Mockups */
+.float-card {
+    position: absolute;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    z-index: 3;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.card-top-left {
+    top: 120px;
+    left: 20px;
+    min-width: 180px;
+}
+
+.card-top-left .title {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.card-top-left .number {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+}
+
+.card-top-left .stat-badge {
+    display: inline-block;
+    background: #e6f9ed;
+    color: #00b050;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: 5px;
+}
+
+.card-bottom-right {
+    bottom: 30px;
+    right: 20px;
+    min-width: 170px;
+}
+
+.card-bottom-right .subtitle {
+    font-size: 10px;
+    color: #888;
+}
+
+.card-bottom-right .main-val {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content p {
+        margin: 0 auto 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-container {
+        margin-top: 40px;
+        height: 400px;
+    }
+}
