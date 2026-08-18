@@ -572,7 +572,7 @@ h1 {
     }
 
     .preview-text-bg {
-        font-size: clamp(54px, 18vw, 120px);
+        font-size: 70px !important;
     }
 
     .preview-details {
@@ -705,10 +705,6 @@ h1 {
     .preview-frame {
         height: 330px;
         border-width: 8px;
-    }
-
-    .preview-text-bg {
-        font-size: clamp(72px, 22vw, 140px);
     }
 
     .project-nav-float {
