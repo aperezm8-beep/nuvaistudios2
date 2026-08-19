@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Nuvai Studios</title>
-    <link rel="stylesheet" href="css/style.css?v=1.8">
+    <link rel="stylesheet" href="css/style.css?v=2.0">
 </head>
 
 <body>
@@ -378,6 +378,18 @@
                 category.hidden = category.id !== categoryId;
                 category.classList.toggle('is-active', category.id === categoryId);
             });
+
+            requestAnimationFrame(() => {
+                const activeCategory = document.getElementById(categoryId);
+                activeCategory.querySelectorAll('.reveal-item').forEach((item, index) => {
+                    item.style.setProperty('--reveal-delay', `${index * 90}ms`);
+                    item.classList.remove('is-visible');
+                });
+
+                requestAnimationFrame(() => {
+                    activeCategory.querySelectorAll('.reveal-item').forEach((item) => item.classList.add('is-visible'));
+                });
+            });
         };
 
         serviceTabs.forEach((tab) => {
@@ -385,6 +397,30 @@
                 showServiceCategory(tab.dataset.serviceTab);
             });
         });
+
+        const revealItems = document.querySelectorAll('.service-card, .portfolio-card, .blog-card, .content-heading, .about-content, .contact-intro, .contact-form');
+
+        revealItems.forEach((item, index) => {
+            item.classList.add('reveal-item');
+            item.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+        });
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            revealItems.forEach((item) => item.classList.add('is-visible'));
+        } else if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -12% 0px' });
+
+            revealItems.forEach((item) => revealObserver.observe(item));
+        } else {
+            revealItems.forEach((item) => item.classList.add('is-visible'));
+        }
 
         document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach((link) => {
             link.addEventListener('click', () => {
