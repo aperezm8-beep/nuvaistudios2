@@ -8,11 +8,11 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Nuvai Studios</title>
-    <link rel="stylesheet" href="css/style.css?v=1.2">
+    <link rel="stylesheet" href="css/style.css?v=1.8">
 </head>
 
 <body>
-   <!-- Barra de Navegación Superior -->
+    <!-- Barra de Navegación Superior -->
     <nav class="top-nav" id="mainNav">
         <div class="nav-brand">
             <a href="#" class="logo"><img src="./images/logonuvaihd.png" alt="Logo Nuvai"></a>
@@ -25,31 +25,32 @@
 
         <div class="nav-menu">
             <div class="nav-left">
+                <a href="#inicio">Inicio</a>
                 <div class="nav-dropdown">
                     <button class="dropdown-toggle" type="button" aria-expanded="false">Servicios ▾</button>
                     <div class="dropdown-menu" aria-label="Servicios">
-                        <a href="#">Desarrollo Web</a>
-                        <a href="#">Marketing Digital</a>
-                        <a href="#">Producción Multimedia</a>
-                        <a href="#">SEO / Ads</a>
+                        <a href="#desarrollo-web">Desarrollo Web</a>
+                        <a href="#marketing-digital">Marketing Digital</a>
+                        <a href="#produccion-multimedia">Producción Multimedia</a>
+                        <a href="#identidad-visual">Identidad Visual</a>
                     </div>
                 </div>
-                <a href="#">Portafolio</a>
-                <a href="#">Academy <span class="new-tag">NEW</span></a>
-                <a href="#">Nosotros</a>
-                <a href="#">Market</a>
+                <a href="#portafolio">Portafolio</a>
+                <a href="#blog">Blog</a>
+                <a href="#nosotros">Nosotros</a>
             </div>
             <div class="nav-right">
-                <div class="search-box">Buscar en esta página...</div>
+                <div class="search-box">Buscar...</div>
                 <a href="#" class="btn btn-be-pro">Planes</a>
-                <a href="#" class="btn btn-submit">Contacto</a>
+                <a href="#contacto" class="btn btn-submit">Contacto</a>
             </div>
         </div>
     </nav>
 
     <!-- Sección Principal -->
-    <header class="main-content">
-        <h1>AGENCIA DE MARKETING Y DISEÑO</h1>
+    <header class="main-content" id="inicio">
+        <h1>AGENCIA DE MARKETING, DISEÑO Y DESARROLLO WEB</h1>
+        <p>Soluciones creativas para impulsar la presencial visual y ventas de tu negocio</p>
     </header>
 
     <!-- Sección del Showcase (Nueva Captura) -->
@@ -59,11 +60,11 @@
                 <div class="preview-screen">
                     <!-- Texto tipográfico de fondo -->
                     <div class="preview-text-bg">NUVAI</div>
-                    <!-- Detalles del modelo -->
+                    <!-- Detalles del modelo
                     <div class="preview-details">
                         <span>MODEL</span>
                         <h3>146GR</h3>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 
@@ -82,6 +83,209 @@
             </div>
         </div>
     </section>
+
+    <section class="services-section" id="servicios">
+        <div class="services-switcher" role="tablist" aria-label="Categorías de servicios">
+            <button class="service-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="identidad-visual" data-service-tab="identidad-visual">Identidad Visual</button>
+            <button class="service-tab" type="button" role="tab" aria-selected="false" aria-controls="desarrollo-web" data-service-tab="desarrollo-web">Desarrollo Web</button>
+            <button class="service-tab" type="button" role="tab" aria-selected="false" aria-controls="marketing-digital" data-service-tab="marketing-digital">Marketing Digital</button>
+            <button class="service-tab" type="button" role="tab" aria-selected="false" aria-controls="produccion-multimedia" data-service-tab="produccion-multimedia">Producción Multimedia</button>
+        </div>
+
+        <div class="service-category is-active" id="identidad-visual" role="tabpanel">
+        <h2 class="section-title">Servicios de Diseño Gráfico e Identidad Visual</h2>
+        <p class="section-subtitle">Creamos la imagen corporativa que tu empresa necesita para destacar, transmitir autoridad y escalar en el mercado global.</p>
+
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Diseño de Logotipos</h3>
+                <p>Desarrollo de isotipos, imagotipos, isologos y logotipos escalables adaptados para impresión, web y avatares de redes sociales.</p>
+            </div>
+            <div class="service-card">
+                <h3>Manual de Identidad Corporativa (Brand Guidelines):</h3>
+                <p>Creación de la guía de estilo que detalla la paleta de colores (en códigos HEX, CMYK y RGB), tipografías primarias y secundarias, retículas de construcción, y los usos correctos e incorrectos de la marca.</p>
+            </div>
+            <div class="service-card">
+                <h3>Despliegue y Rediseño de Marca (Rebranding)</h3>
+                <p>Auditoría de marca existente y modernización gráfica estratégica para conectar mejor con las nuevas tendencias y el público objetivo.</p>
+            </div>
+            <div class="service-card">
+                <h3>Papelería Corporativa:</h3>
+                <p>Diseño de tarjetas de presentación físicas y digitales, hojas membretadas, sobres personalizados, carpetas corporativas y credenciales o carnets.</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="service-category" id="desarrollo-web" role="tabpanel" hidden>
+        <h2 class="section-title">Desarrollo Web y Experiencias Digitales</h2>
+        <p class="section-subtitle">Diseñamos sitios web rápidos, claros y preparados para convertir visitas en oportunidades reales.</p>
+
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Tiendas Virtuales y E-commerce</h3>
+                <p>Desarrollo de plataformas de venta en línea con integración de pagos, gestión de inventario y experiencia de usuario optimizada.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sitios Web Corporativos</h3>
+                <p>Desarrollo de páginas profesionales, adaptables a cualquier dispositivo y enfocadas en presentar tu propuesta de valor.</p>
+            </div>
+            <div class="service-card">
+                <h3>Landing Pages</h3>
+                <p>Páginas de aterrizaje orientadas a campañas, lanzamientos y generación de leads con llamados a la acción estratégicos.</p>
+            </div>
+            <div class="service-card">
+                <h3>Optimización y Mantenimiento</h3>
+                <p>Mejoras de velocidad, estructura, contenido y mantenimiento para que tu presencia digital siga funcionando y creciendo.</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="service-category" id="marketing-digital" role="tabpanel" hidden>
+        <h2 class="section-title">Marketing Digital y Publicidad</h2>
+        <p class="section-subtitle">Conectamos tu marca con las personas adecuadas mediante estrategia, contenido y campañas medibles.</p>
+
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Estrategia de Contenidos</h3>
+                <p>Planificación de temas, formatos y mensajes para construir autoridad y mantener una comunicación constante.</p>
+            </div>
+            <div class="service-card">
+                <h3>Gestión de Redes Sociales</h3>
+                <p>Creación, diseño y organización de publicaciones para fortalecer la comunidad y la presencia de tu marca.</p>
+            </div>
+            <div class="service-card">
+                <h3>Google Ads y Meta Ads</h3>
+                <p>Campañas segmentadas con objetivos claros, seguimiento de resultados y optimización continua de la inversión.</p>
+            </div>
+            <div class="service-card">
+                <h3>SEO y Analítica</h3>
+                <p>Mejoras para ganar visibilidad en buscadores y análisis de datos para tomar decisiones de marketing más precisas.</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="service-category" id="produccion-multimedia" role="tabpanel" hidden>
+        <h2 class="section-title">Producción Multimedia</h2>
+        <p class="section-subtitle">Convertimos ideas en piezas visuales con ritmo, intención y calidad para distintos canales digitales.</p>
+
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Fotografía de Producto</h3>
+                <p>Imágenes cuidadas para mostrar tus productos con claridad y elevar la percepción de calidad de tu catálogo.</p>
+            </div>
+            <div class="service-card">
+                <h3>Video para Redes</h3>
+                <p>Contenido vertical y horizontal pensado para captar atención, comunicar beneficios y generar interacción.</p>
+            </div>
+            <div class="service-card">
+                <h3>Motion Graphics</h3>
+                <p>Animaciones y gráficos en movimiento para explicar conceptos, reforzar campañas y darle vida a tu identidad.</p>
+            </div>
+            <div class="service-card">
+                <h3>Edición y Postproducción</h3>
+                <p>Montaje, corrección de color, sonido y acabados finales para entregar piezas listas para publicar.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="nosotros">
+        <div class="about-mark">N<span>·</span>V</div>
+        <div class="about-content">
+            <span class="eyebrow">Sobre Nuvai Studios</span>
+            <h2>Diseñamos lo que tu marca quiere llegar a ser.</h2>
+            <p>Somos un estudio creativo que une diseño, estrategia y desarrollo para ayudar a negocios ambiciosos a verse tan bien como trabajan.</p>
+            <div class="about-stats"><span><strong>04</strong> áreas creativas</span><span><strong>01</strong> equipo multidisciplinario</span><span><strong>∞</strong> posibilidades</span></div>
+        </div>
+    </section>
+    <section class="content-section portfolio-section" id="portafolio">
+        <div class="content-heading">
+            <span class="eyebrow">Proyectos seleccionados</span>
+            <h2>Ideas que toman forma</h2>
+            <p>Una muestra breve de cómo combinamos estrategia, diseño y tecnología para construir marcas memorables.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <article class="portfolio-card portfolio-card--dark">
+                <div class="portfolio-card__visual"><span>01</span><strong>BRAND<br>SHIFT</strong></div>
+                <div class="portfolio-card__body"><span>Identidad visual</span><h3>Rebranding estratégico</h3></div>
+            </article>
+            <article class="portfolio-card portfolio-card--blue">
+                <div class="portfolio-card__visual"><span>02</span><strong>NUVAI<br>SHOP</strong></div>
+                <div class="portfolio-card__body"><span>Desarrollo web</span><h3>E-commerce con propósito</h3></div>
+            </article>
+            <article class="portfolio-card portfolio-card--pink">
+                <div class="portfolio-card__visual"><span>03</span><strong>MOVE<br>FORWARD</strong></div>
+                <div class="portfolio-card__body"><span>Marketing digital</span><h3>Campaña de lanzamiento</h3></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section blog-section" id="blog">
+        <div class="content-heading">
+            <span class="eyebrow">Ideas para crecer</span>
+            <h2>Notas desde Nuvai</h2>
+            <p>Consejos breves sobre marca, contenido y presencia digital.</p>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card"><span class="blog-card__number">01</span><div><span class="blog-card__meta">Marca · 5 min</span><h3>Cómo construir una identidad que se reconoce</h3><a href="#contacto">Leer artículo <span aria-hidden="true">↗</span></a></div></article>
+            <article class="blog-card"><span class="blog-card__number">02</span><div><span class="blog-card__meta">Web · 4 min</span><h3>Qué debe tener una página que convierte</h3><a href="#contacto">Leer artículo <span aria-hidden="true">↗</span></a></div></article>
+            <article class="blog-card"><span class="blog-card__number">03</span><div><span class="blog-card__meta">Contenido · 6 min</span><h3>Menos publicaciones, más intención</h3><a href="#contacto">Leer artículo <span aria-hidden="true">↗</span></a></div></article>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+        <div class="contact-intro">
+            <span class="eyebrow">Hablemos</span>
+            <h2>Tu próximo proyecto empieza con una conversación.</h2>
+            <p>Cuéntanos qué tienes en mente. Te responderemos con ideas claras y un siguiente paso concreto.</p>
+            <a class="contact-email" href="mailto:hola@nuvai.studio">info@nuvaistudio.com <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <form class="contact-form" action="#contacto" method="post">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required>
+
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>
+
+            <label for="project">Cuéntanos sobre tu proyecto</label>
+            <textarea id="project" name="project" rows="4" placeholder="¿Qué quieres crear o mejorar?" required></textarea>
+
+            <button class="form-submit" type="submit">Enviar mensaje <span aria-hidden="true">↗</span></button>
+        </form>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <a href="#inicio" class="footer-logo"><img src="./images/logonuvaihd.png" alt="Nuvai Studios"></a>
+            <p>Diseño, estrategia y desarrollo para marcas que quieren avanzar.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+            <a href="#servicios">Servicios</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#blog">Blog</a>
+            <a href="#nosotros">Nosotros</a>
+        </nav>
+
+        <div class="footer-contact">
+            <a href="mailto:info@nuvaistudio.com">info@nuvaistudio.com</a>
+            <a href="#contacto">Iniciar un proyecto <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Nuvai Studios</span>
+            <span>Hecho con intención.</span>
+        </div>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/584221464919?text=Hola%20Nuvai%20Studios%2C%20quiero%20conocer%20sus%20servicios." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3Zm-8.4 18.1h-.1c-1.7 0-3.4-.5-4.9-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.8 9.8 0 1 1 8.6 4.8Zm5.4-7.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.2 2.2 1 2.2.7 2.6.7.4 0 1.7-.7 1.9-1.3.2-.6.2-1.2.1-1.3-.1-.2-.3-.3-.6-.4Z" />
+        </svg>
+    </a>
 
     <!-- Sección de Galería Aparte 
     <section class="gallery-section">
@@ -157,6 +361,34 @@
                         otherButton.setAttribute('aria-expanded', 'false');
                     }
                 });
+            });
+        });
+
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        const serviceCategories = document.querySelectorAll('.service-category');
+
+        const showServiceCategory = (categoryId) => {
+            serviceTabs.forEach((tab) => {
+                const isActive = tab.dataset.serviceTab === categoryId;
+                tab.classList.toggle('is-active', isActive);
+                tab.setAttribute('aria-selected', String(isActive));
+            });
+
+            serviceCategories.forEach((category) => {
+                category.hidden = category.id !== categoryId;
+                category.classList.toggle('is-active', category.id === categoryId);
+            });
+        };
+
+        serviceTabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                showServiceCategory(tab.dataset.serviceTab);
+            });
+        });
+
+        document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach((link) => {
+            link.addEventListener('click', () => {
+                showServiceCategory(link.getAttribute('href').slice(1));
             });
         });
 
