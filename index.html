@@ -64,7 +64,9 @@
         "closes": "18:00"
       },
       "sameAs": [
-        "https://www.instagram.com/nuvaistudios"
+        "https://www.instagram.com/nuvaistudios",
+        "https://www.tiktok.com/@nuvaistudios",
+        "https://www.youtube.com/@nuvaistudios"
       ],
       "areaServed": ["Venezuela", "Worldwide"],
       "serviceType": ["Desarrollo Web", "Marketing Digital", "Identidad Visual", "Producción Multimedia"]
@@ -327,6 +329,18 @@
             <a href="#nosotros">Nosotros</a>
         </nav>
 
+        <div class="footer-social" style="display: flex; gap: 1.25rem; align-items: center; margin: 1.25rem 0;">
+            <a href="https://www.instagram.com/nuvaistudios" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: inline-flex; width: 24px; height: 24px; color: inherit;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.tiktok.com/@nuvaistudios" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="display: inline-flex; width: 24px; height: 24px; color: inherit;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+            </a>
+            <a href="https://www.youtube.com/@nuvaistudios" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: inline-flex; width: 24px; height: 24px; color: inherit;">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"></polygon></svg>
+            </a>
+        </div>
+
         <div class="footer-contact">
             <a href="mailto:info@nuvaistudio.com">info@nuvaistudio.com</a>
             <a href="#contacto">Iniciar un proyecto <span aria-hidden="true">↗</span></a>
@@ -345,7 +359,6 @@
     </a>
 
     <script>
-        // [Scripts intactos...]
         const nav = document.getElementById('mainNav');
         const toggle = document.querySelector('.menu-toggle');
         const dropdowns = document.querySelectorAll('.nav-dropdown');
@@ -433,7 +446,6 @@
         }
 
         document.querySelectorAll('.dropdown-menu a[href^="#"]').forEach((link) => {
-            link.preventDefault(); // Nota: Omitido o manejado suavemente
             link.addEventListener('click', () => {
                 showServiceCategory(link.getAttribute('href').slice(1));
             });
