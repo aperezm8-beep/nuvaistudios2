@@ -3,7 +3,7 @@
  * Endpoint para recibir expedientes desde un formulario externo.
  *
  * Formato: POST application/x-www-form-urlencoded, multipart/form-data o JSON.
- * El formulario esta en esp.gwecologico.com y el endpoint en crm2.gwecologico.com.
+ * El formulario esta en nuvaistudio.com y el endpoint en crm.nuvaistudio.com.
  *
  * Campos admitidos:
  * nombre, apellidos, email, telefono, codigo_pais, zona, pais, poblacion,
@@ -16,7 +16,7 @@ header('X-CRM-Endpoint-Version: 2026-08-20-3');
 $isBrowserForm = ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'
     && stripos($_SERVER['HTTP_ACCEPT'] ?? '', 'text/html') !== false;
 
-$allowedOrigin = 'https://gwgreenwash.com';
+$allowedOrigin = 'https://nuvaistudio.com';
 $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($requestOrigin === $allowedOrigin) {
     header('Access-Control-Allow-Origin: ' . $allowedOrigin);
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $redirectWithError = static function (string $message) use ($isBrowserForm) {
     if ($isBrowserForm) {
-        header('Location: https://gwgreenwash.com/mensaje-rechazado.html', true, 303);
+        header('Location: https://nuvaistudio.com/mensaje-rechazado.html', true, 303);
         exit;
     }
     echo json_encode(['ok' => false, 'error' => $message]);
@@ -231,7 +231,7 @@ try {
     $stmt->execute($values);
 
     if ($isBrowserForm) {
-        header('Location: https://gwgreenwash.com/gracias.html', true, 303);
+        header('Location: https://nuvaistudio.com/gracias.html', true, 303);
         exit;
     }
 

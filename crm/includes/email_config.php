@@ -92,7 +92,7 @@ const MODALIDAD_EMAIL_CONFIG = [
         '1doc' => [
             'template'    => 'fase1',
             'nombreMod'   => 'PARKING SUBTERRÁNEO',
-            'linkDossier' => 'https://greenwashcrm.es/storage/docs/Parking Subterraneo 2026.pdf',   // ← Sustituir por URL real del dossier
+            'linkDossier' => 'https://crm.nuvaistudio.com/storage/docs/Parking Subterraneo 2026.pdf',   // ← Sustituir por URL real del dossier
             'linkVideo'   => '#',   // ← Sustituir por URL real del vídeo
         ],
         '2doc' => [
@@ -120,7 +120,7 @@ const MODALIDAD_EMAIL_CONFIG = [
         '1doc' => [
             'template'    => 'fase1',
             'nombreMod'   => 'INDUSTRIAL / LOCAL',
-            'linkDossier' => 'https://greenwashcrm.es/storage/docs/Local Industrial 2026.pdf',
+            'linkDossier' => 'https://crm.nuvaistudio.com/storage/docs/Local Industrial 2026.pdf',
             'linkVideo'   => '#',
         ],
         '2doc' => [
@@ -148,7 +148,7 @@ const MODALIDAD_EMAIL_CONFIG = [
         '1doc' => [
             'template'    => 'fase1',
             'nombreMod'   => 'PARKING SUPERFICIE',
-            'linkDossier' => 'https://greenwashcrm.es/storage/docs/Parking Superficie 2026.pdf',
+            'linkDossier' => 'https://crm.nuvaistudio.com/storage/docs/Parking Superficie 2026.pdf',
             'linkVideo'   => '#',
         ],
         '2doc' => [

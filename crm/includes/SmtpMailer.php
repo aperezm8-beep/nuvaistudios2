@@ -96,7 +96,7 @@ class SmtpMailer
         $from     = $this->fromName ? "\"{$this->fromName}\" <{$this->from}>" : $this->from;
         $toLine   = $toName ? "\"{$toName}\" <{$to}>" : $to;
         $replyTo  = $this->replyTo ?: $this->from;
-        $msgId    = '<' . time() . '.' . uniqid() . '@' . ($this->host ?: 'greenwash.es') . '>';
+        $msgId    = '<' . time() . '.' . uniqid() . '@' . ($this->host ?: 'nuvaistudio.com') . '>';
         $date     = date('r');
         $subject  = '=?UTF-8?B?' . base64_encode($subject) . '?=';
 
@@ -110,7 +110,7 @@ class SmtpMailer
             "Message-ID: {$msgId}",
             "MIME-Version: 1.0",
             "Content-Type: multipart/alternative; boundary=\"{$boundary}\"",
-            "X-Mailer: GreenWashCRM",
+            "X-Mailer: NuvaiCRM",
         ]);
 
         $plainText = strip_tags(str_replace(['<br', '<p', '</p', '<td', '</tr'], ["\n<br", "\n<p", "</p\n", "\n<td", "</tr\n"], $htmlBody));

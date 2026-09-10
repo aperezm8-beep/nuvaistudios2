@@ -1,14 +1,15 @@
 <?php
 // includes/header.php
 // $pageTitle debe estar definido antes de incluir este archivo
-if (!isset($pageTitle)) $pageTitle = 'CRM GW';
+if (!isset($pageTitle)) $pageTitle = 'Nuvai CRM';
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($pageTitle) ?> | GW CRM</title>
+    <title><?= htmlspecialchars($pageTitle) ?> | Nuvai CRM</title>
+    <link rel="icon" type="image/png" href="https://nuvaistudio.com/images/favicon32x32.png">
     <link rel="stylesheet" href="<?= $basePath ?? '' ?>assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,7 +24,7 @@ if (!isset($pageTitle)) $pageTitle = 'CRM GW';
         </button>
         <div class="topbar-brand">
             <span class="brand-icon">🌿</span>
-            <span class="brand-name">GW CRM</span>
+            <span class="brand-name">Nuvai CRM</span>
         </div>
         <div class="topbar-user">
             <span class="user-avatar"><?= strtoupper(substr($_SESSION['nombre'] ?? 'U', 0, 1)) ?></span>
@@ -35,7 +36,7 @@ if (!isset($pageTitle)) $pageTitle = 'CRM GW';
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <span class="brand-icon">🌿</span>
-            <span>GW CRM</span>
+            <span>Nuvai CRM</span>
             <button class="sidebar-close" id="sidebarClose">✕</button>
         </div>
         <div class="sidebar-user">

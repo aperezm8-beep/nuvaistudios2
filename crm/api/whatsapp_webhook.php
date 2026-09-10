@@ -110,13 +110,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     setSession($from, ['step' => 'IDLE', 'data' => []]);
                     sendMainMenuToUser($phoneNumberId, $accessToken, $from);
                 }
-                elseif (isAiActivationRequest($userText) && $step !== 'ASK_NOMBRE' && $step !== 'ASK_APELLIDOS' && $step !== 'ASK_EMAIL' && $step !== 'ASK_ZONA' && $step !== 'ASK_PAIS' && $step !== 'ASK_POBLACION' && $step !== 'ASK_PROVINCIA' && $step !== 'ASK_MODALIDAD' && $step !== 'ASK_ASESOR_EMAIL') {
+                elseif (isAiActivationRequest($userText) && $step !== 'ASK_NOMBRE' && $step !== 'ASK_EMAIL' && $step !== 'ASK_PROYECTO' && $step !== 'ASK_ASESOR_EMAIL') {
                     setSession($from, ['step' => 'AI_ASSISTANT', 'data' => []]);
                     sendTextMessageIfConfigured(
                         $phoneNumberId,
                         $accessToken,
                         $from,
-                        "Perfecto. Ya estás hablando con el asistente IA de Green Wash.\n\nTe puedo explicar cómo funciona, qué ventajas tiene y cuál es el siguiente paso para ver si encaja contigo.\n\nPuedes escribir:\n- *Quiero más información*\n- *¿Cómo funciona?*\n- *¿Qué ventajas tiene?*\n- *¿Hay franquicia?*\n- *Quiero que me contacten*\n- *Menú principal*\n\nSi prefieres, al final también puedes pedir hablar con un asesor humano."
+                        "Perfecto. Ya estás hablando con el asistente IA de Nuvai Studios.\n\nPuedo orientarte sobre diseño, desarrollo web, marketing digital y producción multimedia.\n\nPuedes escribir:\n- *Quiero más información*\n- *Necesito una página web*\n- *Quiero mejorar mi marca*\n- *Necesito marketing digital*\n- *Quiero que me contacten*\n- *Menú principal*\n\nSi prefieres, también puedes pedir hablar con un asesor humano."
                     );
                 }
                 elseif ($step === 'AI_ASSISTANT') {
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $phoneNumberId,
                             $accessToken,
                             $from,
-                            "Perfecto. Ya estás hablando con el asistente IA de Green Wash.\n\nTe puedo explicar el modelo, las ventajas y el siguiente paso para valorar si te interesa.\n\nPrueba con:\n- *Quiero más información*\n- *¿Cómo funciona?*\n- *¿Qué ventajas tiene?*\n- *¿Hay franquicia?*\n- *Quiero que me contacten*\n- *Menú principal*\n\nSi al final necesitas ayuda humana, te la pondremos en contacto con un asesor."
+                            "Perfecto. Ya estás hablando con el asistente IA de Nuvai Studios.\n\nPuedo orientarte sobre diseño, desarrollo web, marketing digital y producción multimedia.\n\nPrueba con:\n- *Quiero más información*\n- *Necesito una página web*\n- *Quiero mejorar mi marca*\n- *Necesito marketing digital*\n- *Quiero que me contacten*\n- *Menú principal*\n\nSi al final necesitas ayuda humana, te pondremos en contacto con un asesor."
                         );
                     }
                 }
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         'type'              => 'interactive',
                         'interactive'        => [
                             'type' => 'button',
-                            'body' => ['text' => "¡Hola! Gracias por comunicarte con Green Wash. ¿Cómo podemos ayudarte hoy?"],
+                            'body' => ['text' => "¡Hola! Gracias por comunicarte con Nuvai Studios. ¿Cómo podemos ayudarte hoy?"],
                             'action' => [
                                 'buttons' => [
                                     ['type' => 'reply', 'reply' => ['id' => 'btn_informacion', 'title' => 'Más información']],
@@ -189,12 +189,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     switch ($step) {
                         case 'ASK_NOMBRE':
                             $session['data']['nombre'] = $userText;
-                            setSession($from, ['step' => 'ASK_APELLIDOS', 'data' => $session['data']]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿Cuáles son tus *apellidos*?");
-                            break;
-
-                        case 'ASK_APELLIDOS':
-                            $session['data']['apellidos'] = $userText;
                             setSession($from, ['step' => 'ASK_EMAIL', 'data' => $session['data']]);
                             sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿Cuál es tu *email*?");
                             break;
@@ -205,32 +199,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 break;
                             }
                             $session['data']['email'] = strtolower($userText);
-                            setSession($from, ['step' => 'ASK_ZONA', 'data' => $session['data']]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿En qué *zona o sector* estás? (España o Internacional)");
+                            setSession($from, ['step' => 'ASK_PROYECTO', 'data' => $session['data']]);
+                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "Cuéntame brevemente sobre tu *proyecto* o qué te gustaría crear o mejorar.");
                             break;
 
-                        case 'ASK_ZONA':
-                            $session['data']['zona'] = $userText;
-                            setSession($from, ['step' => 'ASK_PAIS', 'data' => $session['data']]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿En qué *país* estás?");
-                            break;
-
-                        case 'ASK_PAIS':
-                            $session['data']['pais'] = $userText;
-                            setSession($from, ['step' => 'ASK_POBLACION', 'data' => $session['data']]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿Cuál es tu *población o ciudad*?");
-                            break;
-
-                        case 'ASK_POBLACION':
-                            $session['data']['poblacion'] = $userText;
-                            setSession($from, ['step' => 'ASK_PROVINCIA', 'data' => $session['data']]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿Cuál es tu *provincia*? Si no aplica, responde `sin provincia`.");
-                            break;
-
-                        case 'ASK_PROVINCIA':
-                            $session['data']['provincia'] = strtolower($userText) === 'sin provincia' ? '' : $userText;
-                            setSession($from, ['step' => 'ASK_MODALIDAD', 'data' => $session['data']]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¿Qué modalidad te interesa? Responde: *parking subterráneo*, *industrial/local*, *parking superficie* o *parking subterráneo Low Cost*.");
+                        case 'ASK_PROYECTO':
+                            $session['data']['project'] = $userText;
+                            $session['data']['comentario'] = $userText;
+                            $leadId = createWhatsappLead($from, $session['data']);
+                            $logCrm = date('Y-m-d H:i:s') . " | CRM LEAD CREADO: ID: {$leadId} | Tel: {$from} | Nombre: {$session['data']['nombre']}\n";
+                            file_put_contents(__DIR__ . '/webhook_debug.log', $logCrm, FILE_APPEND);
+                            setSession($from, ['step' => 'IDLE', 'data' => []]);
+                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "Gracias. Hemos recibido tu proyecto. El equipo de Nuvai Studios te contactará pronto.");
                             break;
 
                         case 'ASK_ASESOR_EMAIL':
@@ -246,18 +226,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $logCrm = date('Y-m-d H:i:s') . " | CRM SOLICITUD ASESOR: ID: {$leadId} | Tel: {$from}\n";
                             file_put_contents(__DIR__ . '/webhook_debug.log', $logCrm, FILE_APPEND);
                             setSession($from, ['step' => 'IDLE', 'data' => []]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "Gracias. Un asesor de Green Wash te contactará pronto.");
-                            break;
-
-                        case 'ASK_MODALIDAD':
-                            $session['data']['modalidad'] = $userText;
-                            $leadId = createWhatsappLead($from, $session['data']);
-                            $logCrm = date('Y-m-d H:i:s') . " | CRM LEAD CREADO: ID: {$leadId} | Tel: {$from} | Nombre: {$session['data']['nombre']} | Zona: {$session['data']['zona']} | Población: {$session['data']['poblacion']}\n";
-                            file_put_contents(__DIR__ . '/webhook_debug.log', $logCrm, FILE_APPEND);
-
-                            // Reiniciar sesión y confirmar al usuario
-                            setSession($from, ['step' => 'IDLE', 'data' => []]);
-                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "¡Tus datos han sido registrados con éxito en GW Bot! Un asesor te contactará pronto.");
+                            sendTextMessageIfConfigured($phoneNumberId, $accessToken, $from, "Gracias. El equipo de Nuvai Studios te contactará pronto.");
                             break;
                     }
                 }
@@ -313,7 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             $phoneNumberId,
                             $accessToken,
                             $from,
-                            "Perfecto. Ya estás hablando con el asistente IA de Green Wash.\n\nTe puedo explicar el modelo, las ventajas y el siguiente paso para valorar si te interesa.\n\nPrueba con:\n- *Quiero más información*\n- *¿Cómo funciona?*\n- *¿Qué ventajas tiene?*\n- *¿Hay franquicia?*\n- *Quiero que me contacten*\n- *Menú principal*\n\nSi al final necesitas ayuda humana, te la pondremos en contacto con un asesor."
+                            "Perfecto. Ya estás hablando con el asistente IA de Nuvai Studios.\n\nPuedo orientarte sobre diseño, desarrollo web, marketing digital y producción multimedia.\n\nPrueba con:\n- *Quiero más información*\n- *Necesito una página web*\n- *Quiero mejorar mi marca*\n- *Necesito marketing digital*\n- *Quiero que me contacten*\n- *Menú principal*\n\nSi al final necesitas ayuda humana, te pondremos en contacto con un asesor."
                         );
                     }
                 }
@@ -371,14 +340,15 @@ function tryGeminiAssistant($userText, $siteContext = null) {
     }
 
     $model = getEnvValue('GEMINI_MODEL', 'gemini-1.5-flash');
-    $context = $siteContext ? "Información de Green Wash:\n" . substr($siteContext, 0, 3000) : '';
+    $context = $siteContext ? "Información de Nuvai Studios:\n" . substr($siteContext, 0, 3000) : '';
 
-    $systemInstruction = "Eres un asesor comercial de Green Wash (lavado ecológico y franquicias).
+    $systemInstruction = "Eres un asesor comercial de Nuvai Studios.
 Tu objetivo es responder por WhatsApp de forma natural, ágil, concisa y profesional (máximo 2 a 3 frases por mensaje).
-Puntos clave de Green Wash:
-- Ahorro de más de 150 litros de agua por lavado gracias a productos ecológicos y biodegradables.
-- Modelos de franquicia rentables en parkings subterráneos, centros comerciales, naves y locales.
-- Presencia en España y expansión internacional.
+Áreas de Nuvai Studios:
+- Identidad visual y diseño gráfico.
+- Desarrollo web, tiendas virtuales y landing pages.
+- Marketing digital, redes sociales, SEO y publicidad.
+- Producción multimedia y contenido para redes.
 
 Reglas:
 1. Sé conciso y conversacional. No hagas listas largas.
@@ -441,7 +411,7 @@ function tryOpenAiAssistant($userText, $siteContext = null) {
     $payload = [
         'model' => getEnvValue('OPENAI_MODEL', 'gpt-4o-mini'),
         'messages' => [
-            ['role' => 'system', 'content' => "Eres un asesor comercial de Green Wash en WhatsApp. Responde conciso (2-3 líneas), directo y termina siempre con una pregunta corta para guiar al cliente.\n" . $contextText],
+            ['role' => 'system', 'content' => "Eres un asesor comercial de Nuvai Studios en WhatsApp. Responde conciso (2-3 líneas), directo y termina siempre con una pregunta corta para guiar al cliente.\n" . $contextText],
             ['role' => 'user', 'content' => $userText],
         ],
         'temperature' => 0.6,
@@ -488,7 +458,7 @@ function tryOpenRouterAssistant($userText, $siteContext = null) {
     $payload = [
         'model' => $model,
         'messages' => [
-            ['role' => 'system', 'content' => "Eres un asesor de Green Wash en WhatsApp. Responde conciso (2-3 líneas), directo y termina con una pregunta corta.\n" . $contextText],
+            ['role' => 'system', 'content' => "Eres un asesor de Nuvai Studios en WhatsApp. Responde conciso (2-3 líneas), directo y termina con una pregunta corta.\n" . $contextText],
             ['role' => 'user', 'content' => $userText],
         ],
         'temperature' => 0.6,
@@ -504,7 +474,7 @@ function tryOpenRouterAssistant($userText, $siteContext = null) {
             'Content-Type: application/json',
             'Authorization: Bearer ' . trim($apiKey),
             'HTTP-Referer: ' . rtrim($siteUrl, '/'),
-            'X-Title: Green Wash Bot',
+            'X-Title: Nuvai Studios WhatsApp',
         ],
         CURLOPT_TIMEOUT        => 15,
         CURLOPT_SSL_VERIFYPEER => true,
@@ -532,11 +502,11 @@ function tryOllamaAssistant($userText, $siteContext = null) {
         return null;
     }
 
-    $contextPrompt = $siteContext ? "Base de datos Green Wash: " . substr($siteContext, 0, 3000) : '';
+    $contextPrompt = $siteContext ? "Información de Nuvai Studios: " . substr($siteContext, 0, 3000) : '';
 
     $payload = [
         'model' => $model,
-        'prompt' => "Eres un asesor comercial de Green Wash en WhatsApp. Responde breve (2-3 frases) y termina con una pregunta corta:\n\nCliente: " . $userText . "\n\n" . $contextPrompt,
+        'prompt' => "Eres un asesor comercial de Nuvai Studios en WhatsApp. Responde breve (2-3 frases) y termina con una pregunta corta:\n\nCliente: " . $userText . "\n\n" . $contextPrompt,
         'stream' => false,
     ];
 
@@ -574,7 +544,7 @@ function buildGreenWashFallbackReply($userText, $siteContext = null) {
 
     // 1. Franquicias, inversión, costes y rentabilidad
     if (preg_match('/\b(franquicia|invertir|inversion|negocio|coste|precio|cuanto cuesta|rentabilidad|abrir|montar)\b/u', $text)) {
-        return "En Green Wash ofrecemos un modelo de franquicia probado y rentable, ideal para parkings o locales comerciales sin necesidad de obras complejas.\n\n¿Te interesaría abrir en España o en el extranjero?";
+        return "En Nuvai Studios ayudamos a marcas y negocios con identidad visual, desarrollo web y marketing digital.\n\n¿Quieres mejorar una marca existente o crear un proyecto desde cero?";
     }
 
     // 2. Sistema de lavado, productos y ahorro de agua
@@ -594,16 +564,16 @@ function buildGreenWashFallbackReply($userText, $siteContext = null) {
 
     // 5. Contacto con asesor humano
     if (preg_match('/\b(asesor|humano|persona|hablar|llamar|telefono|contacto|cita)\b/u', $text)) {
-        return "Con gusto te comunico con un asesor de Green Wash para ver los números y resolver tus dudas.\n\nPor favor, facilítame tu correo electrónico para que te contacte.";
+        return "Con gusto te comunico con un asesor de Nuvai Studios para revisar tu proyecto.\n\nPor favor, facilítame tu correo electrónico para que te contacte.";
     }
 
     // 6. Saludos y peticiones generales
     if (preg_match('/\b(hola|buenas|informacion|info|que es|quienes son|ayuda)\b/u', $text)) {
-        return "Green Wash combina sostenibilidad, innovación y una propuesta de negocio con potencial de crecimiento.\n\n¿Te interesa más información sobre el servicio o la franquicia?";
+        return "Nuvai Studios combina estrategia, diseño y tecnología para crear experiencias digitales que hacen avanzar tu negocio.\n\n¿Te interesa más información sobre diseño, web o marketing?";
     }
 
     // 7. Fallback general
-    return "Green Wash combina sostenibilidad, innovación y una propuesta de negocio con potencial de crecimiento.\n\n¿Te interesa más información sobre el servicio o la franquicia?";
+    return "Nuvai Studios combina estrategia, diseño y tecnología para crear experiencias digitales que hacen avanzar tu negocio.\n\n¿Te interesa más información sobre diseño, web o marketing?";
 }
 
 // ------------------------------------------------------------------
@@ -612,8 +582,7 @@ function buildGreenWashFallbackReply($userText, $siteContext = null) {
 
 function getGreenWashWebsiteContext() {
     $urls = [
-        'https://greenwash.es',
-        'https://www.greenwash.es',
+        'https://nuvaistudio.com',
     ];
 
     foreach ($urls as $url) {
@@ -819,7 +788,7 @@ function sendMainMenuToUser($phoneNumberId, $accessToken, $to) {
         'type'              => 'interactive',
         'interactive'        => [
             'type' => 'button',
-            'body' => ['text' => "¡Hola! Gracias por comunicarte con Green Wash. ¿Cómo podemos ayudarte hoy?"],
+            'body' => ['text' => "¡Hola! Gracias por comunicarte con Nuvai Studios. ¿Cómo podemos ayudarte hoy?"],
             'action' => [
                 'buttons' => [
                     ['type' => 'reply', 'reply' => ['id' => 'btn_informacion', 'title' => 'Más información']],
