@@ -113,7 +113,7 @@ if (empty($_SESSION['csrf_token'])) {
         </form>
 
         <p style="text-align:center;margin-top:20px;font-size:0.75rem;color:#9ca3af;">
-            GW CRM &copy; <?= date('Y') ?>
+        Nuvai CRM &copy; <?= date('Y') ?>
         </p>
     </div>
 </div>
